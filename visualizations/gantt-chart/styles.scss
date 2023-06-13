@@ -1,0 +1,36 @@
+.subheader {
+  margin-bottom: 1rem;
+  color: rgb(107, 117, 123);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.gantt-chart {
+  overflow: scroll;
+
+  text {
+    font: inherit !important;
+  }
+
+  // change color style for bars via CSS -> see palette settings for code-based change
+  // g:nth-child(7) {
+  //   rect {
+  //     fill: darkred;
+  //   }
+  // }
+}
+
+.ErrorState {
+  height: 500px;
+}
+
+.EmptyState,
+.ErrorState {
+  &-cardBody {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

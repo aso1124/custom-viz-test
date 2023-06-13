@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "custom-viz",
+  "version": "0.4.0",
+  "scripts": {
+    "start": "nr1 nerdpack:serve",
+    "test": "exit 0"
+  },
+  "nr1": {
+    "uuid": "30e65d84-ad64-43c0-8773-78727c131640"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.8",
+    "prop-types": "15.7.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-google-charts": "^3.0.15",
+    "@newrelic/nr-labs-components": "^1.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not ie < 11",
+    "not dead"
+  ]
+}

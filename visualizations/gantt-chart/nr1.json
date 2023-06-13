@@ -1,0 +1,105 @@
+{
+  "schemaType": "VISUALIZATION",
+  "id": "nr-gantt-chart",
+  "displayName": "Event Timeline",
+  "description": "",
+  "configuration": [
+    {
+      "name": "nrqlQuery",
+      "title": "NRQL Query",
+      "type": "namespace",
+      "items": [
+        {
+          "name": "useTimePicker",
+          "title": "Use platform timepicker",
+          "description": "When true, will apply use the active timepicker value as the SINCE clause for the query.",
+          "type": "boolean"
+        },
+        {
+          "name": "accountId",
+          "title": "Account ID",
+          "description": "Account ID to be associated with the query",
+          "type": "account-id"
+        },
+        {
+          "name": "query",
+          "title": "Query",
+          "description": "NRQL query for visualization",
+          "type": "nrql"
+        },
+        {
+          "name": "enableFilters",
+          "title": "Enable dashboard filters",
+          "description": "When true, will apply dashboard filters to the results of this chart",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "ganttProps",
+      "title": "Gantt Chart Configuration",
+      "description": "Customzie the look and feel of the chart",
+      "type": "namespace",
+      "items": [
+        {
+          "name": "barCornerRadius",
+          "title": "Bar Corner Radius",
+          "description": "The radius for defining the curve of a bar's corners (number)",
+          "type": "number"
+        },
+        {
+          "name": "barHeight",
+          "title": "Bar Height",
+          "description": "The height of the bars for tasks (number)",
+          "type": "number"
+        },
+        {
+          "name": "gridLineColor",
+          "title": "Grid Line Color",
+          "description": "The color of the inner horizontal grid lines (number)",
+          "type": "number"
+        },
+        {
+          "name": "gridLineWidth",
+          "title": "Grid Line Width",
+          "description": "The width of the inner horizontal grid lines (number)",
+          "type": "number"
+        },
+        {
+          "name": "gridTrackColor",
+          "title": "Grid Track Color",
+          "description": "The fill color of the grid tracks (string)",
+          "type": "string"
+        },
+        {
+          "name": "gridAlternateTrackColor",
+          "title": "Grid Alernate Track Color",
+          "description": "The fill color of the alternate grid tracks (string)",
+          "type": "string"
+        },
+        {
+          "name": "fontSize",
+          "title": "Font Size",
+          "type": "number"
+        },
+        {
+          "name": "fontColor",
+          "title": "Font Color",
+          "type": "string"
+        },
+        {
+          "name": "sortTasks",
+          "title": "Sort Tasks",
+          "description": "Specifies that the tasks should sorted topologically, if true; otherwise use the same order as the corresponding rows of the data.",
+          "type": "boolean"
+        },
+        {
+          "name": "trackHeight",
+          "title": "Track Height",
+          "description": "The height of the tracks (number)",
+          "type": "number"
+        }
+      ]
+    }
+  ]
+}
