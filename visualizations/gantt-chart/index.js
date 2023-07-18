@@ -51,27 +51,13 @@ const initGanttProps = (ganttProps) => {
   if (!ganttProps.barHeight) ganttProps.barHeight = 24
   if (!ganttProps.fontSize) ganttProps.fontSize = 10
   if (!ganttProps.fontColor) ganttProps.fontColor = 'inherit'
+  if (!ganttProps.gridLineColor) ganttProps.gridLineWidth = 1
   if (!ganttProps.gridTrackColor) ganttProps.gridTrackColor = 'white'
   if (!ganttProps.gridAlternateTrackColor)
     ganttProps.gridAlternateTrackColor = 'white'
   if (!ganttProps.trackHeight) ganttProps.trackHeight = 25
 }
 
-/*
-Query must include a start and an end attribute, which must be timestamp values. 
-
-Query may include an optional group 
-
-Each attribute included in the query will have to be queryable as latest. 
-
-Facet should include the unique values that identify the individual job runs, and a job name
-
-A typical query would look like:
-SELECT latest(startTimestamp) as 'start', latest(endTimestamp) as 'end', latest(queue) as 'group', ...attributes FROM event FACET jobId, jobName
-
-If the end < start, the job is in progress
-If the start < end, the job has completed
-*/
 const GanttChartVisualization = ({ nrqlQuery, ganttProps }) => {
   console.info('nrqlQuery', JSON.stringify(nrqlQuery))
 
@@ -160,7 +146,9 @@ const GanttChartVisualization = ({ nrqlQuery, ganttProps }) => {
     platformContext?.timeRange && nrqlQuery.useTimePicker
       ? timeRangeToNrql(platformContext)
       : ''
-  const queryString = `${nrqlQuery.query} ${timeClause}`
+  const filtersClause =
+    nrqlQuery.enableFilters && filters ? ` WHERE ${filters} ` : ''
+  const queryString = `${nrqlQuery.query} ${timeClause} ${filtersClause} `
 
   console.info('queryString', queryString)
   const query = `
@@ -177,7 +165,7 @@ const GanttChartVisualization = ({ nrqlQuery, ganttProps }) => {
 
   return (
     <AutoSizer>
-      {({ width, height }) => (
+      {({ width = '100%', height = '100%' }) => (
         <div
           className="gantt-chart"
           style={{ width, height, overflow: 'scroll', margin: 'auto' }}
